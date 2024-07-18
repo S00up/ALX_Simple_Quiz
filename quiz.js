@@ -1,14 +1,18 @@
-function checkAnswer() {
-    // Declare the correct answer
-    var correctAnswer = "4";
+const radioInputs = document.querySelectorAll("input[name='quiz']"),
+submitBtn = document.getElementById("submit-answer"),
+feedback = document.getElementById('feedback');
 
-    // Retrieve the user's answer
-    var userAnswer = document.querySelector('input[name="quiz"]:checked').value;
+submitBtn.addEventListener("click" , _ => checkAnswer());
 
-    // Compare the user's answer with the correct answer and display feedback
+
+function checkAnswer () {
+    const correctAnswer  = 4;
+    let userAnswer = +document.querySelector("input[name='quiz']:checked").value;
+    // return feedback---
     if (userAnswer === correctAnswer) {
-        document.getElementById("feedback").textContent = "Correct! Well done.";
-    } else {
-        document.getElementById("feedback").textContent = "That's incorrect. Try again!";
+        feedback.textContent = "Correct! Well done.";
+    }
+    else {
+        feedback.textContent = "That's incorrect. Try again!";
     }
 }
